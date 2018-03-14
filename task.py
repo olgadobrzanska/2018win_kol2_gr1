@@ -18,3 +18,8 @@
 #Your program must be runnable with command "python task.py".
 #Show some usecases of your library in the code (print some things)
 #Good Luck
+
+from Client import Client
+from Bank import Bank
+
+client1 = Client(Gosia, Cos)
