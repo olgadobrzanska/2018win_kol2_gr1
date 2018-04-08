@@ -1,25 +1,42 @@
-#Banking simulator. Write a code in python that simulates the banking system. 
-#The program should:
-# - be able to create new banks
-# - store client information in banks
-# - allow for cash input and withdrawal
-# - allow for money transfer from client to client
-#If you can thing of any other features, you can add them.
-#This code shoud be runnable with 'python kol1.py'.
-#You don't need to use user input, just show me in the script that the structure of your code works.
-#If you have spare time you can implement: Command Line Interface, some kind of data storage, or even multiprocessing.
-#Do your best, show off with good, clean, well structured code - this is more important than number of features.
-#After you finish, be sure to UPLOAD this (add, commit, push) to the remote repository.
-#Make intelligent use of pythons syntactic sugar (overloading, iterators, generators, etc)
-#Most of all: CREATE GOOD, RELIABLE, READABLE CODE.
-#The goal of this task is for you to SHOW YOUR BEST python programming skills.
-#Impress everyone with your skills, show off with your code.
-#
-#Your program must be runnable with command "python task.py".
-#Show some usecases of your library in the code (print some things)
-#Good Luck
+from Bank import *
+from Client import *
 
-from Client import Client
-from Bank import Bank
+bank = Bank("moj_bank")
+bank2 = Bank("moj_bank2")
+client1 = Client("Andrzej", "Kowalski")
+client2 = Client("Anna", "Nowak")
+client3 = Client("Grzegorz", "Aaaa")
+client4 = Client("Katarzyna", "Bbbb")
 
-client1 = Client(Gosia, Cos)
+bank.add_client(client1)
+bank.add_client(client2)
+
+bank2.add_client(client3)
+bank2.add_client(client4)
+
+client1.add_money(200)
+client1.remove_money(50)
+client1.add_money(2)
+client2.add_money(1200)
+client3.add_money(15000)
+client4.add_money(160)
+print('Show client - bank')
+bank.show_all_clients()
+print('\nShow client - bank2')
+bank2.show_all_clients()
+
+print('\nShow money')
+client1.cash()
+client2.cash()
+print('\nAfter transfer')
+bank.transfer_money(client1, client2, 20)
+client1.cash()
+client2.cash()
+
+print('\nShow money')
+client1.cash()
+client3.cash()
+print('\nAfter transfer')
+bank.transfer_money(client1, client3, 100)
+client1.cash()
+client3.cash()
